@@ -50,6 +50,6 @@ void change_matrix() {
 int main() {
     get_input();
     change_matrix();
-    std::cout << compare_matrix_is_same() ? cnt : -1;
+    std::cout << (compare_matrix_is_same() ? cnt : -1);
     return 0;
 }
