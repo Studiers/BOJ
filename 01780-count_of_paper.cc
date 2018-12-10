@@ -1,9 +1,20 @@
 #include <iostream>
 
+int N;
 int counts[3] { 0, 0, 0 };
 int arr[2187][2187];
 
-void r(int x, int y, int offset) {
+void get_input() {
+    std::cin >> N;
+
+    for (int i { 0 }; i < N; ++i) {
+        for (int j { 0 }; j < N; ++j) {
+            std::cin >> arr[i][j];
+        }
+    }
+}
+
+void count_papers(int x, int y, int offset) {
     const int CELL = arr[y][x];
 
     for (int i { x }; i < x + offset; ++i) {
@@ -22,19 +33,13 @@ void r(int x, int y, int offset) {
     counts[CELL + 1] += 1;
 }
 
-int main() {
-    int N;
-    std::cin >> N;
-
-    for (int i { 0 }; i < N; ++i) {
-        for (int j { 0 }; j < N; ++j) {
-            std::cin >> arr[i][j];
-        }
-    }
-
-    r(0, 0, N);
-
+void print_counts() {
     std::cout << counts[0] << '\n' << counts[1] << '\n' << counts[2];
+}
 
+int main() {
+    get_input();
+    count_papers(0, 0, N);
+    print_counts();
     return 0;
 }
