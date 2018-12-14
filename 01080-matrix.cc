@@ -17,7 +17,7 @@ void get_input() {
     }
 }
 
-bool compare_matrix_is_same() {
+bool check_is_same_matrix() {
     for (int i { 0 }; i < N; ++i) {
         for (int j { 0 }; j < M; ++j) {
             if (matrix[0][i][j] != matrix[1][i][j]) {
@@ -50,6 +50,6 @@ void change_matrix() {
 int main() {
     get_input();
     change_matrix();
-    std::cout << (compare_matrix_is_same() ? cnt : -1);
+    std::cout << (check_is_same_matrix() ? cnt : -1);
     return 0;
 }
